@@ -247,7 +247,7 @@ function Deck() {
       <header className={`fixed inset-x-0 top-0 z-40 flex h-16 items-center justify-between px-[5vw] transition-colors motion-reduce:transition-none lg:px-[4vw] ${darkNow ? "text-lp-background" : "text-lp-foreground"}`}>
         <button
           onClick={() => go(1)}
-          className={`flex items-center gap-2 font-display text-lg font-semibold ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
+          className={`flex items-center gap-2 font-display text-lg font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 ${darkNow ? "focus-visible:outline-lp-background" : "focus-visible:outline-lp-focus"}`}
         >
           <span className="grid h-7 w-7 place-items-center rounded-md bg-lp-primary text-xs text-lp-primary-foreground">
             S
@@ -256,7 +256,7 @@ function Deck() {
         </button>
         <button
           onClick={() => setOpen(true)}
-          className={`flex items-center gap-2 rounded-lp-control border border-lp-border-strong px-4 py-1.5 font-mono text-xs uppercase tracking-widest backdrop-blur hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
+          className={`flex items-center gap-2 rounded-lp-control border border-lp-border-strong px-4 py-1.5 font-mono text-xs uppercase tracking-widest backdrop-blur hover:border-lp-primary focus-visible:outline-2 focus-visible:outline-offset-2 ${darkNow ? "focus-visible:outline-lp-background" : "focus-visible:outline-lp-focus"}`}
         >
           <Menu className="h-4 w-4" /> Sections
         </button>
@@ -288,14 +288,14 @@ function Deck() {
         <button
           aria-label="Previous"
           onClick={() => go(cur - 1)}
-          className={`grid h-8 w-8 place-items-center rounded-lp-control border border-lp-border-strong hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
+          className={`grid h-8 w-8 place-items-center rounded-lp-control border border-lp-border-strong hover:border-lp-primary focus-visible:outline-2 focus-visible:outline-offset-2 ${darkNow ? "focus-visible:outline-lp-background" : "focus-visible:outline-lp-focus"}`}
         >
           <ChevronUp className="h-4 w-4" />
         </button>
         <button
           aria-label="Next"
           onClick={() => go(cur + 1)}
-          className={`grid h-8 w-8 place-items-center rounded-lp-control border border-lp-border-strong hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
+          className={`grid h-8 w-8 place-items-center rounded-lp-control border border-lp-border-strong hover:border-lp-primary focus-visible:outline-2 focus-visible:outline-offset-2 ${darkNow ? "focus-visible:outline-lp-background" : "focus-visible:outline-lp-focus"}`}
         >
           <ChevronDown className="h-4 w-4" />
         </button>
