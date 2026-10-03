@@ -50,6 +50,22 @@
   --color-warn: var(--warn);
   --color-warn-soft: var(--warn-soft);
   --shadow-card: var(--shadow-card);
+  --color-lp-background: var(--lp-background);
+  --color-lp-surface: var(--lp-surface);
+  --color-lp-surface-sunken: var(--lp-surface-sunken);
+  --color-lp-foreground: var(--lp-foreground);
+  --color-lp-foreground-muted: var(--lp-foreground-muted);
+  --color-lp-foreground-subtle: var(--lp-foreground-subtle);
+  --color-lp-border: var(--lp-border);
+  --color-lp-border-strong: var(--lp-border-strong);
+  --color-lp-primary: var(--lp-primary);
+  --color-lp-primary-hover: var(--lp-primary-hover);
+  --color-lp-primary-foreground: var(--lp-primary-foreground);
+  --color-lp-primary-surface: var(--lp-primary-surface);
+  --color-lp-coral: var(--lp-coral);
+  --color-lp-warning: var(--lp-warning);
+  --color-lp-warn-surface: var(--lp-warn-surface);
+  --shadow-lp-card: var(--lp-shadow-card);
   --font-display: "Space Grotesk", ui-sans-serif, sans-serif;
   --font-sans: "IBM Plex Sans", ui-sans-serif, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -108,6 +124,24 @@
   --sidebar-border: oklch(0.929 0.013 255.508);
   --sidebar-ring: oklch(0.704 0.04 256.788);
   --shadow-card: 0 1px 2px oklch(0.2 0.05 262 / 0.04), 0 8px 24px -12px oklch(0.2 0.05 262 / 0.12);
+
+  /* Landing page identity (light-only; the landing has no dark variant). */
+  --lp-background: oklch(0.966 0.009 100);
+  --lp-surface: oklch(1 0 90);
+  --lp-surface-sunken: oklch(0.948 0.011 95);
+  --lp-foreground: oklch(0.191 0.002 107);
+  --lp-foreground-muted: oklch(0.478 0.006 95);
+  --lp-foreground-subtle: oklch(0.523 0.009 99);
+  --lp-border: oklch(0.875 0.015 98);
+  --lp-border-strong: oklch(0.642 0.013 97);
+  --lp-primary: oklch(0.558 0.130 37);
+  --lp-primary-hover: oklch(0.506 0.120 37);
+  --lp-primary-foreground: oklch(0.991 0.005 95);
+  --lp-primary-surface: oklch(0.965 0.016 37);
+  --lp-coral: oklch(0.672 0.131 39);
+  --lp-warning: oklch(0.499 0.094 80);
+  --lp-warn-surface: oklch(0.953 0.028 89);
+  --lp-shadow-card: 0 1px 2px oklch(0.191 0.002 107 / 0.05), 0 8px 24px -12px oklch(0.191 0.002 107 / 0.1);
 }
 
 .dark {
@@ -160,7 +194,7 @@ html { scroll-behavior: smooth; }
 .deck { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
 .slide { scroll-snap-align: start; min-height: 100vh; }
 .grid-bg {
-  background-image: linear-gradient(var(--border) 1px, transparent 1px), linear-gradient(90deg, var(--border) 1px, transparent 1px);
+  background-image: linear-gradient(var(--lp-border) 1px, transparent 1px), linear-gradient(90deg, var(--lp-border) 1px, transparent 1px);
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse at 70% 40%, black 10%, transparent 70%);
 }
