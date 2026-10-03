@@ -93,7 +93,7 @@ function Slide({
   );
 }
 
-function Node({ t, s, d = 0, strong, tag }: { t: string; s?: string; d?: number; strong?: boolean; tag?: string }) {
+function Node({ t, s, d = 0, strong, tag }: { t: string | undefined; s?: string | undefined; d?: number; strong?: boolean; tag?: string }) {
   return (
     <R d={d} className="h-full">
       <div
@@ -211,7 +211,7 @@ function Deck() {
         entries.forEach((e) => {
           if (e.isIntersecting) {
             e.target.classList.add("in");
-            if (e.intersectionRatio > 0.5) setCur(Number((e.target as HTMLElement).dataset.slide));
+            if (e.intersectionRatio > 0.5) setCur(Number((e.target as HTMLElement).dataset["slide"]));
           }
         });
       },
