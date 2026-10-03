@@ -244,7 +244,7 @@ function Deck() {
   return (
     <div className="relative">
       {/* header */}
-      <header className={`fixed inset-x-0 top-0 z-40 flex h-16 items-center justify-between px-[5vw] transition-colors lg:px-[4vw] ${darkNow ? "text-lp-background" : "text-lp-foreground"}`}>
+      <header className={`fixed inset-x-0 top-0 z-40 flex h-16 items-center justify-between px-[5vw] transition-colors motion-reduce:transition-none lg:px-[4vw] ${darkNow ? "text-lp-background" : "text-lp-foreground"}`}>
         <button
           onClick={() => go(1)}
           className={`flex items-center gap-2 font-display text-lg font-semibold ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
@@ -300,7 +300,7 @@ function Deck() {
           <ChevronDown className="h-4 w-4" />
         </button>
       </div>
-      <div className="fixed left-0 top-0 z-50 h-0.5 bg-lp-primary transition-all duration-500" style={{ width: `${(cur / TOTAL) * 100}%` }} />
+      <div className="fixed left-0 top-0 z-50 h-0.5 bg-lp-primary transition-all duration-300 motion-reduce:transition-none" style={{ width: `${(cur / TOTAL) * 100}%` }} />
 
       <div ref={deckRef} className="deck">
         {/* 01 COVER */}

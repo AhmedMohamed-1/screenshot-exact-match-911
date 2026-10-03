@@ -202,8 +202,11 @@ html { scroll-behavior: smooth; }
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse at 70% 40%, black 10%, transparent 70%);
 }
-.reveal { opacity: 0; transform: translateY(18px); transition: opacity .6s ease, transform .6s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--d, 0) * 70ms); }
+.reveal { opacity: 0; transform: translateY(18px); transition: opacity .3s ease, transform .3s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--d, 0) * 70ms); }
 .in .reveal { opacity: 1; transform: none; }
-.draw { transform: scaleX(0); transform-origin: left; transition: transform .5s ease; transition-delay: calc(var(--d, 0) * 70ms + 150ms); }
+.draw { transform: scaleX(0); transform-origin: left; transition: transform .3s ease; transition-delay: calc(var(--d, 0) * 70ms + 150ms); }
 .in .draw { transform: scaleX(1); }
-@media (prefers-reduced-motion: reduce) { .reveal, .draw { transition: none; opacity: 1; transform: none; } }
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .reveal, .draw { transition: none; opacity: 1; transform: none; }
+}
