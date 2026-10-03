@@ -79,7 +79,7 @@ function Slide({
         </div>
       </R>
       <R d={1}>
-        <h2 className="mt-4 max-w-[22ch] font-display text-4xl font-semibold leading-[1.02] tracking-tight md:text-6xl xl:text-7xl">
+        <h2 className="mt-4 max-w-[25ch] font-display text-4xl font-semibold leading-[1.02] tracking-tight md:text-6xl xl:text-7xl">
           {title}
         </h2>
       </R>
@@ -245,11 +245,19 @@ function Deck() {
     <div className="relative">
       {/* header */}
       <header className={`fixed inset-x-0 top-0 z-40 flex h-16 items-center justify-between px-[5vw] transition-colors lg:px-[4vw] ${darkNow ? "text-lp-background" : "text-lp-foreground"}`}>
-        <button onClick={() => go(1)} className={`flex items-center gap-2 font-display text-lg font-semibold ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}>
-          <span className="grid h-7 w-7 place-items-center rounded-md bg-lp-primary text-xs text-lp-primary-foreground">S</span>
+        <button
+          onClick={() => go(1)}
+          className={`flex items-center gap-2 font-display text-lg font-semibold ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
+        >
+          <span className="grid h-7 w-7 place-items-center rounded-md bg-lp-primary text-xs text-lp-primary-foreground">
+            S
+          </span>
           Study<span className="text-lp-primary">OS</span>
         </button>
-        <button onClick={() => setOpen(true)} className={`flex items-center gap-2 rounded-full border border-lp-border-strong px-4 py-1.5 font-mono text-xs uppercase tracking-widest backdrop-blur hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}>
+        <button
+          onClick={() => setOpen(true)}
+          className={`flex items-center gap-2 rounded-full border border-lp-border-strong px-4 py-1.5 font-mono text-xs uppercase tracking-widest backdrop-blur hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
+        >
           <Menu className="h-4 w-4" /> Sections
         </button>
       </header>
@@ -277,8 +285,20 @@ function Deck() {
         <span className="font-mono text-xs tracking-widest">
           {String(cur).padStart(2, "0")} <span className="opacity-40">/ {TOTAL}</span>
         </span>
-        <button aria-label="Previous" onClick={() => go(cur - 1)} className={`grid h-8 w-8 place-items-center rounded-full border border-lp-border-strong hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}><ChevronUp className="h-4 w-4" /></button>
-        <button aria-label="Next" onClick={() => go(cur + 1)} className={`grid h-8 w-8 place-items-center rounded-full border border-lp-border-strong hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}><ChevronDown className="h-4 w-4" /></button>
+        <button
+          aria-label="Previous"
+          onClick={() => go(cur - 1)}
+          className={`grid h-8 w-8 place-items-center rounded-full border border-lp-border-strong hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
+        >
+          <ChevronUp className="h-4 w-4" />
+        </button>
+        <button
+          aria-label="Next"
+          onClick={() => go(cur + 1)}
+          className={`grid h-8 w-8 place-items-center rounded-full border border-lp-border-strong hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
+        >
+          <ChevronDown className="h-4 w-4" />
+        </button>
       </div>
       <div className="fixed left-0 top-0 z-50 h-0.5 bg-lp-primary transition-all duration-500" style={{ width: `${(cur / TOTAL) * 100}%` }} />
 
