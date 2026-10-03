@@ -15,6 +15,11 @@ import {
   Users,
   Check,
   AlertTriangle,
+  Server,
+  MonitorSmartphone,
+  Container,
+  BrainCircuit,
+  Palette,
 } from "lucide-react";
 
 export const Route = createFileRoute("/")({
@@ -174,13 +179,13 @@ function Bullets({ items, start = 3 }: { items: string[]; start?: number }) {
 /* ---------- data ---------- */
 
 const team = [
-  { n: "Ahmed Mohamed", r: "Team Leader — Backend", lead: true },
-  { n: "Mohamed Essam", r: "Frontend Developer" },
-  { n: "Mohamed Bayommi", r: "Frontend Developer" },
-  { n: "Mohamed Ali", r: "DevOps Engineer" },
-  { n: "Mohamed Samir", r: "DevOps Engineer" },
-  { n: "Fatma Mahmoud", r: "AI Engineer" },
-  { n: "Hamdy Mohamed", r: "UI/UX Designer" },
+  { n: "Ahmed Mohamed", r: "Team Leader — Backend", lead: true, i: Server },
+  { n: "Mohamed Essam", r: "Frontend Developer", i: MonitorSmartphone },
+  { n: "Mohamed Bayommi", r: "Frontend Developer", i: MonitorSmartphone },
+  { n: "Mohamed Ali", r: "DevOps Engineer", i: Container },
+  { n: "Mohamed Samir", r: "DevOps Engineer", i: Container },
+  { n: "Fatma Mahmoud", r: "AI Engineer", i: BrainCircuit },
+  { n: "Hamdy Mohamed", r: "UI/UX Designer", i: Palette },
 ];
 
 const nav = [
@@ -634,8 +639,8 @@ function Deck() {
             {team.map((m, k) => (
               <R key={m.n} d={3 + k} className={m.lead ? "sm:col-span-2 lg:row-span-2 lg:col-span-1" : ""}>
                 <div className={`flex h-full flex-col rounded-lp-card border p-6 shadow-lp-card ${m.lead ? "border-lp-primary bg-lp-primary text-lp-primary-foreground" : "border-lp-border bg-lp-surface"}`}>
-                  <div className={`grid h-12 w-12 place-items-center rounded-full font-display text-lg font-semibold ${m.lead ? "bg-lp-primary-foreground text-lp-primary" : "bg-lp-primary-surface text-lp-primary-hover"}`}>
-                    {m.n.split(" ").map((w) => w[0]).join("")}
+                  <div className={`grid h-12 w-12 place-items-center rounded-full ${m.lead ? "bg-lp-primary-foreground text-lp-primary" : "bg-lp-primary-surface text-lp-primary-hover"}`}>
+                    <m.i className="h-6 w-6" aria-hidden="true" />
                   </div>
                   <div className={`mt-auto pt-8 font-display font-semibold ${m.lead ? "text-3xl" : "text-xl"}`}>{m.n}</div>
                   <div className={`mt-1 text-sm ${m.lead ? "text-lp-primary-foreground" : "text-lp-foreground-muted"}`}>{m.r}</div>
