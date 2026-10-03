@@ -288,7 +288,7 @@ function Deck() {
       {/* progress */}
       <div className={`fixed bottom-6 right-[5vw] z-40 flex items-center gap-3 lg:right-[4vw] ${darkNow ? "text-lp-background" : "text-lp-foreground"}`}>
         <span className="font-mono text-xs tracking-widest">
-          {String(cur).padStart(2, "0")} <span className="opacity-40">/ {TOTAL}</span>
+          {String(cur).padStart(2, "0")} <span className={darkNow ? "text-lp-background/60" : "text-lp-foreground-muted"}>/ {TOTAL}</span>
         </span>
         <button
           aria-label="Previous"
