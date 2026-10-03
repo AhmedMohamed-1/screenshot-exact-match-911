@@ -1,4 +1,4 @@
-name: Deploy Vite Site to Pages
+name: Deploy TanStack App to Pages
 
 on:
   push:
@@ -24,16 +24,16 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Setup Node
-        uses: actions/setup-node@v4
+      - name: Setup Bun
+        uses: oven-sh/setup-bun@v1
         with:
-          node-version: 20
+          bun-version: latest
 
       - name: Install dependencies
-        run: npm ci
+        run: bun install
 
       - name: Build site
-        run: npm run build
+        run: bun run build
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
@@ -41,6 +41,7 @@ jobs:
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
+          # If your build outputs to dist, use './dist'. If TanStack Start outputs to .output/public, change to './.output/public'
           path: './dist'
 
       - name: Deploy to GitHub Pages
