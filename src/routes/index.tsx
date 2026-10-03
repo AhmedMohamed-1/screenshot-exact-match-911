@@ -20,16 +20,16 @@ import {
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "EduMap AI — Understand what you know" },
+      { title: "Study OS — Understand what you know" },
       {
         name: "description",
         content:
-          "Interactive presentation of EduMap AI: concept-level weakness detection, root-cause analysis and personalized recommendations grounded in course material.",
+          "Interactive presentation of Study OS: concept-level weakness detection, root-cause analysis and personalized recommendations grounded in course material.",
       },
-      { property: "og:title", content: "EduMap AI — Graduation Project Presentation" },
+      { property: "og:title", content: "Study OS — Graduation Project Presentation" },
       {
         property: "og:description",
-        content: "How EduMap AI turns course material and quiz attempts into learning insights with .NET, SQL Server, Gemini and RAG.",
+        content: "How Study OS turns course material and quiz attempts into learning insights with .NET, SQL Server, Gemini and RAG.",
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -246,8 +246,8 @@ function Deck() {
       {/* header */}
       <header className={`fixed inset-x-0 top-0 z-40 flex h-16 items-center justify-between px-[5vw] transition-colors lg:px-[4vw] ${darkNow ? "text-navy-foreground" : "text-foreground"}`}>
         <button onClick={() => go(1)} className="flex items-center gap-2 font-display text-lg font-semibold">
-          <span className="grid h-7 w-7 place-items-center rounded-md bg-primary text-xs text-primary-foreground">E</span>
-          EduMap<span className="text-primary">AI</span>
+          <span className="grid h-7 w-7 place-items-center rounded-md bg-primary text-xs text-primary-foreground">S</span>
+          Study<span className="text-primary">OS</span>
         </button>
         <button onClick={() => setOpen(true)} className="flex items-center gap-2 rounded-full border border-current/20 px-4 py-1.5 font-mono text-xs uppercase tracking-widest backdrop-blur hover:border-primary">
           <Menu className="h-4 w-4" /> Sections
@@ -289,7 +289,7 @@ function Deck() {
           <div className="relative grid items-end gap-12 lg:grid-cols-[7fr_5fr]">
             <div>
               <R><div className="font-mono text-xs uppercase tracking-[0.2em] text-navy-foreground/60">Graduation Project · 2026</div></R>
-              <R d={1}><h1 className="mt-6 font-display text-6xl font-bold leading-[0.9] tracking-tight md:text-8xl xl:text-[10rem]">EduMap<span className="text-primary">AI</span></h1></R>
+              <R d={1}><h1 className="mt-6 font-display text-6xl font-bold leading-[0.9] tracking-tight md:text-8xl xl:text-[10rem]">Study<span className="text-primary">OS</span></h1></R>
               <R d={2}><p className="mt-8 max-w-[24ch] font-display text-2xl font-medium md:text-4xl">Understand what you know. Discover what you don't.</p></R>
             </div>
             <R d={3}>
@@ -304,12 +304,12 @@ function Deck() {
         </section>
 
         {/* 02 PROBLEM */}
-        <Slide id="problem" n={2} eyebrow="The Problem" title="More content than ever. Less clarity than ever." sub="Students rarely know what they actually understand — until the exam tells them.">
+        <Slide id="problem" n={2} eyebrow="The Problem" title="More content than ever. Less clarity than ever." sub="Students rarely know what they actually understand until the exam tells them.">
           <div className="grid gap-5 md:grid-cols-3">
             {[
-              { i: FileStack, t: "Fragmented Material", s: "Slides, PDFs, notes and videos scattered across sources with no connection between them." },
+              { i: FileStack, t: "Fragmented Material", s: "Slides, PDFs and notes scattered across sources with no connection between them." },
               { i: ShieldAlert, t: "False Confidence", s: "Finishing a chapter feels like understanding it. Often, it isn't." },
-              { i: MessageSquareDashed, t: "Generic Help", s: "AI chat answers are disconnected from the actual course — and never explain why a student is weak." },
+              { i: MessageSquareDashed, t: "Generic Help", s: "AI chat answers are disconnected from the actual course and never explain why a student is weak." },
             ].map((c, k) => (
               <R key={c.t} d={3 + k} className="h-full">
                 <div className="flex h-full flex-col rounded-2xl border border-border bg-card p-8 shadow-card">
@@ -323,7 +323,7 @@ function Deck() {
         </Slide>
 
         {/* 03 IDEA */}
-        <Slide id="idea" n={3} eyebrow="The Idea" title="One system that connects learning to understanding." sub="EduMap AI links the student's material, assessment results and AI analysis into a single loop.">
+        <Slide id="idea" n={3} eyebrow="The Idea" title="One system that connects learning to understanding." sub="Study OS links the student's material, assessment results and AI analysis into a single loop.">
           <Flow
             steps={[
               { t: "Course Material", s: "Documents uploaded per course" },
@@ -514,7 +514,7 @@ function Deck() {
         <Slide id="documents" n={11} eyebrow="Document Processing" title="Uploaded material becomes searchable knowledge.">
           <Split
             ratio="lg:grid-cols-[4fr_8fr]"
-            left={<R d={2}><p className="text-xl text-muted-foreground">A PDF is not knowledge yet. EduMap AI extracts its structure, breaks it into chapters and concepts, and indexes it so the AI can retrieve exactly what's relevant.</p></R>}
+            left={<R d={2}><p className="text-xl text-muted-foreground">A PDF is not knowledge yet. Study OS extracts its structure, breaks it into chapters and concepts, and indexes it so the AI can retrieve exactly what's relevant.</p></R>}
             right={
               <div className="grid gap-x-6 sm:grid-cols-2">
                 <VFlow steps={[{ t: "Document" }, { t: "Extraction" }, { t: "Text / Structure" }, { t: "Chapters" }]} />
@@ -641,7 +641,7 @@ function Deck() {
         </Slide>
 
         {/* 18 FUTURE */}
-        <Slide id="future" n={18} eyebrow="Future Vision · Planned" title="Where EduMap AI could go next." sub="Planned developments — not part of the current implementation.">
+        <Slide id="future" n={18} eyebrow="Future Vision · Planned" title="Where Study OS could go next." sub="Planned developments — not part of the current implementation.">
           <div className="grid gap-5 md:grid-cols-3">
             {[
               { i: CalendarDays, t: "Study Planner", s: "Turn recommendations into a scheduled study path." },
@@ -689,7 +689,7 @@ function Deck() {
           <R><div className="relative font-mono text-xs uppercase tracking-[0.2em] text-navy-foreground/60">20 — Closing</div></R>
           <R d={1}>
             <h2 className="relative mt-6 font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-8xl xl:text-9xl">
-              EduMap AI turns learning data into <span className="text-primary">understanding.</span>
+              Study OS turns learning data into <span className="text-primary">understanding.</span>
             </h2>
           </R>
           <R d={3}><p className="relative mt-10 font-mono text-sm text-navy-foreground/60">Thank you · Questions welcome</p></R>
