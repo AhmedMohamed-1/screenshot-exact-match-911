@@ -661,7 +661,7 @@ function Deck() {
                 </div>
               </R>
             ))}
-            <R d={14}><div className="flex h-full items-center rounded-lp-card bg-lp-primary-surface px-5 py-4 font-mono text-xs uppercase tracking-widest text-lp-primary-hover">Core · current scope</div></R>
+            <R d={14}><div className="flex h-full items-center rounded-lp-card border border-lp-border bg-lp-primary-surface px-5 py-4 font-mono text-xs uppercase tracking-widest text-lp-primary-hover shadow-lp-card">Core · current scope</div></R>
           </div>
         </Slide>
 
