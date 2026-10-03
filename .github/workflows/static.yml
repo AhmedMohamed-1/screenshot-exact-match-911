@@ -35,8 +35,11 @@ jobs:
       - name: Build site
         run: bun run build
 
-      - name: Debug Output Directory
-        run: ls -la && ls -la dist || true && ls -la .output || true
+      - name: Prepare static files for GitHub Pages
+        run: |
+          cp .output/public/index.html .output/public/404.html || true
+          touch .output/public/.nojekyll
+          if [ -f CNAME ]; then cp CNAME .output/public/CNAME; fi
 
       - name: Setup Pages
         uses: actions/configure-pages@v4
