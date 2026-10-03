@@ -66,6 +66,8 @@
   --color-lp-warning: var(--lp-warning);
   --color-lp-warn-surface: var(--lp-warn-surface);
   --shadow-lp-card: var(--lp-shadow-card);
+  --radius-lp-control: var(--lp-radius-control);
+  --radius-lp-card: var(--lp-radius-card);
   --font-display: "Source Serif 4", ui-serif, "Times New Roman", Georgia, serif;
   --font-sans: "Inter", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --font-mono: "JetBrains Mono", ui-monospace, monospace;
@@ -142,6 +144,8 @@
   --lp-warning: oklch(0.499 0.094 80);
   --lp-warn-surface: oklch(0.953 0.028 89);
   --lp-shadow-card: 0 1px 2px oklch(0.191 0.002 107 / 0.05), 0 8px 24px -12px oklch(0.191 0.002 107 / 0.1);
+  --lp-radius-control: 0.5rem;
+  --lp-radius-card: 0.75rem;
 }
 
 .dark {

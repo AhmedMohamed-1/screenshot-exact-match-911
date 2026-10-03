@@ -97,7 +97,7 @@ function Node({ t, s, d = 0, strong, tag }: { t: string | undefined; s?: string 
   return (
     <R d={d} className="h-full">
       <div
-        className={`h-full rounded-xl border p-5 shadow-lp-card ${
+        className={`h-full rounded-lp-card border p-5 shadow-lp-card ${
           strong ? "border-lp-primary bg-lp-primary text-lp-primary-foreground" : "border-lp-border bg-lp-surface"
         }`}
       >
@@ -136,7 +136,7 @@ function VFlow({ steps, start = 3 }: { steps: { t: string; s?: string; strong?: 
         <div key={st.t}>
           <R d={start + i}>
             <div
-              className={`flex items-center gap-4 rounded-xl border px-5 py-3.5 shadow-lp-card ${
+              className={`flex items-center gap-4 rounded-lp-card border px-5 py-3.5 shadow-lp-card ${
                 st.strong ? "border-lp-primary bg-lp-primary text-lp-primary-foreground" : "border-lp-border bg-lp-surface"
               }`}
             >
@@ -256,7 +256,7 @@ function Deck() {
         </button>
         <button
           onClick={() => setOpen(true)}
-          className={`flex items-center gap-2 rounded-full border border-lp-border-strong px-4 py-1.5 font-mono text-xs uppercase tracking-widest backdrop-blur hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
+          className={`flex items-center gap-2 rounded-lp-control border border-lp-border-strong px-4 py-1.5 font-mono text-xs uppercase tracking-widest backdrop-blur hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
         >
           <Menu className="h-4 w-4" /> Sections
         </button>
@@ -272,7 +272,7 @@ function Deck() {
             <ul className="mt-8 space-y-1">
               {nav.map(([id, l]) => (
                 <li key={id}>
-                  <button onClick={() => goId(id)} className="w-full rounded-lg px-3 py-3 text-left font-display text-2xl font-medium hover:bg-lp-primary-surface hover:text-lp-primary-hover">{l}</button>
+                  <button onClick={() => goId(id)} className="w-full rounded-lp-control px-3 py-3 text-left font-display text-2xl font-medium hover:bg-lp-primary-surface hover:text-lp-primary-hover">{l}</button>
                 </li>
               ))}
             </ul>
@@ -288,14 +288,14 @@ function Deck() {
         <button
           aria-label="Previous"
           onClick={() => go(cur - 1)}
-          className={`grid h-8 w-8 place-items-center rounded-full border border-lp-border-strong hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
+          className={`grid h-8 w-8 place-items-center rounded-lp-control border border-lp-border-strong hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
         >
           <ChevronUp className="h-4 w-4" />
         </button>
         <button
           aria-label="Next"
           onClick={() => go(cur + 1)}
-          className={`grid h-8 w-8 place-items-center rounded-full border border-lp-border-strong hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
+          className={`grid h-8 w-8 place-items-center rounded-lp-control border border-lp-border-strong hover:border-lp-primary ${darkNow ? "focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-lp-background" : ""}`}
         >
           <ChevronDown className="h-4 w-4" />
         </button>
@@ -332,7 +332,7 @@ function Deck() {
               { i: MessageSquareDashed, t: "Generic Help", s: "AI chat answers are disconnected from the actual course and never explain why a student is weak." },
             ].map((c, k) => (
               <R key={c.t} d={3 + k} className="h-full">
-                <div className="flex h-full flex-col rounded-2xl border border-lp-border bg-lp-surface p-8 shadow-lp-card">
+                <div className="flex h-full flex-col rounded-lp-card border border-lp-border bg-lp-surface p-8 shadow-lp-card">
                   <c.i className="h-8 w-8 text-lp-primary" />
                   <div className="mt-auto pt-16 font-display text-2xl font-semibold">{c.t}</div>
                   <p className="mt-3 text-lp-foreground-muted">{c.s}</p>
@@ -404,7 +404,7 @@ function Deck() {
               <div className="space-y-6">
                 <R d={2}><p className="text-xl text-lp-foreground-muted">Every request passes through the .NET backend. It owns business rules, data flow and persistence.</p></R>
                 <R d={3}>
-                  <div className="rounded-xl border border-lp-border bg-lp-primary-surface p-5 text-lp-primary-hover">
+                  <div className="rounded-lp-card border border-lp-border bg-lp-primary-surface p-5 text-lp-primary-hover">
                     <div className="font-display font-semibold">The AI never touches the database directly.</div>
                     <div className="mt-1 text-sm opacity-80">It receives context from the backend and returns results through defined contracts. The backend stores them.</div>
                   </div>
@@ -449,7 +449,7 @@ function Deck() {
               ["Database", ["Users", "Courses", "Documents", "Concepts", "Quiz attempts", "Results", "Learning data", "AI-generated insights"]],
             ].map(([t, items], k) => (
               <R key={t as string} d={3 + k} className="h-full">
-                <div className={`h-full rounded-2xl border p-6 shadow-lp-card ${k === 1 ? "border-lp-primary bg-lp-primary text-lp-primary-foreground" : "border-lp-border bg-lp-surface"}`}>
+                <div className={`h-full rounded-lp-card border p-6 shadow-lp-card ${k === 1 ? "border-lp-primary bg-lp-primary text-lp-primary-foreground" : "border-lp-border bg-lp-surface"}`}>
                   <div className={`font-mono text-xs ${k === 1 ? "text-lp-primary-foreground" : "text-lp-primary"}`}>L{k + 1}</div>
                   <div className="mt-1 font-display text-2xl font-semibold">{t as string}</div>
                   <ul className="mt-5 space-y-2 text-sm">
@@ -469,7 +469,7 @@ function Deck() {
             left={<R d={2}><p className="text-xl text-lp-foreground-muted">The frontend talks to the backend only through defined REST contracts. The backend decides what reaches the AI — and what gets stored.</p></R>}
             right={
               <R d={3}>
-                <div className="overflow-hidden rounded-2xl border border-lp-border bg-lp-foreground font-mono text-sm text-lp-background shadow-lp-card">
+                <div className="overflow-hidden rounded-lp-card border border-lp-border bg-lp-foreground font-mono text-sm text-lp-background shadow-lp-card">
                   <div className="border-b border-lp-background/10 px-5 py-3 text-xs text-lp-background/50">frontend → .NET REST API (examples)</div>
                   {[
                     ["POST", "/api/quiz-attempts", "Submit a quiz attempt"],
@@ -495,12 +495,12 @@ function Deck() {
           <div className="grid items-center gap-6 lg:grid-cols-[3fr_auto_4fr_auto_3fr]">
             <div className="space-y-3">
               {["user_id", "course_id", "quiz_attempt_id"].map((x, k) => (
-                <R key={x} d={3 + k}><div className="rounded-xl border border-lp-border bg-lp-surface px-5 py-4 font-mono text-lg shadow-lp-card">{x}</div></R>
+                <R key={x} d={3 + k}><div className="rounded-lp-card border border-lp-border bg-lp-surface px-5 py-4 font-mono text-lg shadow-lp-card">{x}</div></R>
               ))}
             </div>
             <R d={6}><ArrowRight className="mx-auto hidden h-6 w-6 text-lp-primary lg:block" /><ArrowDown className="mx-auto h-6 w-6 text-lp-primary lg:hidden" /></R>
             <R d={7}>
-              <div className="rounded-2xl border border-lp-primary bg-lp-primary p-6 text-lp-primary-foreground shadow-lp-card">
+              <div className="rounded-lp-card border border-lp-primary bg-lp-primary p-6 text-lp-primary-foreground shadow-lp-card">
                 <div className="font-mono text-xs text-lp-primary-foreground">.NET BACKEND IDENTIFIES</div>
                 <ul className="mt-4 grid grid-cols-2 gap-3 font-display text-lg">
                   {["Which student", "Which course", "Which assessment", "Which concepts"].map((x) => <li key={x} className="flex items-center gap-2"><Check className="h-4 w-4" />{x}</li>)}
@@ -552,8 +552,8 @@ function Deck() {
                 <R d={2}><p className="text-xl text-lp-foreground-muted">Retrieval-Augmented Generation fetches relevant passages from the course material <em>before</em> Gemini responds.</p></R>
                 <R d={3}>
                   <div className="grid grid-cols-2 gap-3 text-sm">
-                    <div className="rounded-xl border border-lp-border bg-lp-surface-sunken p-4"><div className="font-display font-semibold text-lp-foreground-subtle">Without RAG</div><div className="mt-1 text-lp-foreground-subtle">Generic model knowledge</div></div>
-                    <div className="rounded-xl border border-lp-primary bg-lp-primary-surface p-4 text-lp-primary-hover"><div className="font-display font-semibold">With RAG</div><div className="mt-1">Grounded in actual material</div></div>
+                    <div className="rounded-lp-card border border-lp-border bg-lp-surface-sunken p-4"><div className="font-display font-semibold text-lp-foreground-subtle">Without RAG</div><div className="mt-1 text-lp-foreground-subtle">Generic model knowledge</div></div>
+                    <div className="rounded-lp-card border border-lp-primary bg-lp-primary-surface p-4 text-lp-primary-hover"><div className="font-display font-semibold">With RAG</div><div className="mt-1">Grounded in actual material</div></div>
                   </div>
                 </R>
               </div>
@@ -579,7 +579,7 @@ function Deck() {
             {["Course", "Chapter", "Concept", "Questions", "Student Answers", "Performance Pattern", "Weak Concept"].map((t, k) => (
               <R key={t} d={3 + k} className="lg:flex-1">
                 <div
-                  className={`flex items-end rounded-xl border p-4 font-display text-lg font-semibold shadow-lp-card ${k === 6 ? "border-lp-primary bg-lp-primary text-lp-primary-foreground" : "border-lp-border bg-lp-surface"}`}
+                  className={`flex items-end rounded-lp-card border p-4 font-display text-lg font-semibold shadow-lp-card ${k === 6 ? "border-lp-primary bg-lp-primary text-lp-primary-foreground" : "border-lp-border bg-lp-surface"}`}
                   style={{ minHeight: `${4 + k * 2.2}rem` }}
                 >
                   <div><div className={`font-mono text-[11px] ${k === 6 ? "text-lp-primary-foreground" : "text-lp-primary"}`}>{k < 6 ? `LEVEL ${k + 1}` : "DETECTED"}</div>{t}</div>
@@ -623,7 +623,7 @@ function Deck() {
           <Flow steps={[{ t: "Weak Concept" }, { t: "Root Cause" }, { t: "Relevant Course Material" }, { t: "Recommended Study Action" }]} />
           <div className="mt-8 grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {["Review a specific concept", "Revisit a prerequisite", "Read a relevant section", "Practice related questions"].map((t, k) => (
-              <R key={t} d={8 + k}><div className="rounded-xl border border-dashed border-lp-border px-5 py-4 text-lg">→ {t}</div></R>
+              <R key={t} d={8 + k}><div className="rounded-lp-card border border-dashed border-lp-border px-5 py-4 text-lg">→ {t}</div></R>
             ))}
           </div>
         </Slide>
@@ -633,7 +633,7 @@ function Deck() {
           <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
             {team.map((m, k) => (
               <R key={m.n} d={3 + k} className={m.lead ? "sm:col-span-2 lg:row-span-2 lg:col-span-1" : ""}>
-                <div className={`flex h-full flex-col rounded-2xl border p-6 shadow-lp-card ${m.lead ? "border-lp-primary bg-lp-primary text-lp-primary-foreground" : "border-lp-border bg-lp-surface"}`}>
+                <div className={`flex h-full flex-col rounded-lp-card border p-6 shadow-lp-card ${m.lead ? "border-lp-primary bg-lp-primary text-lp-primary-foreground" : "border-lp-border bg-lp-surface"}`}>
                   <div className={`grid h-12 w-12 place-items-center rounded-full font-display text-lg font-semibold ${m.lead ? "bg-lp-primary-foreground text-lp-primary" : "bg-lp-primary-surface text-lp-primary-hover"}`}>
                     {m.n.split(" ").map((w) => w[0]).join("")}
                   </div>
@@ -650,13 +650,13 @@ function Deck() {
           <div className="grid gap-3 sm:grid-cols-2 lg:grid-cols-4">
             {["Course material processing", "Documents", "Concepts", "Quiz / assessment analysis", "AI integration", "RAG", "Weakness detection", "Root-cause analysis", "Recommendations", "Backend API", "SQL Server persistence"].map((t, k) => (
               <R key={t} d={3 + k}>
-                <div className="flex items-center gap-3 rounded-xl border border-lp-border bg-lp-surface px-5 py-4 shadow-lp-card">
+                <div className="flex items-center gap-3 rounded-lp-card border border-lp-border bg-lp-surface px-5 py-4 shadow-lp-card">
                   <span className="grid h-6 w-6 shrink-0 place-items-center rounded-full bg-lp-primary text-lp-primary-foreground"><Check className="h-3.5 w-3.5" /></span>
                   <span className="font-medium">{t}</span>
                 </div>
               </R>
             ))}
-            <R d={14}><div className="flex h-full items-center rounded-xl bg-lp-primary-surface px-5 py-4 font-mono text-xs uppercase tracking-widest text-lp-primary-hover">Core · current scope</div></R>
+            <R d={14}><div className="flex h-full items-center rounded-lp-card bg-lp-primary-surface px-5 py-4 font-mono text-xs uppercase tracking-widest text-lp-primary-hover">Core · current scope</div></R>
           </div>
         </Slide>
 
@@ -669,7 +669,7 @@ function Deck() {
               { i: Users, t: "Study Communities", s: "Learn together around shared courses." },
             ].map((c, k) => (
               <R key={c.t} d={3 + k} className="h-full">
-                <div className="flex h-full flex-col rounded-2xl border-2 border-dashed border-lp-warning bg-lp-warn-surface p-8">
+                <div className="flex h-full flex-col rounded-lp-card border-2 border-dashed border-lp-warning bg-lp-warn-surface p-8">
                   <div className="flex items-center justify-between">
                     <c.i className="h-8 w-8 text-lp-warning" />
                     <span className="rounded-full border border-lp-warning px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-lp-warning">Planned</span>
@@ -694,7 +694,7 @@ function Deck() {
               "Processing large documents can require extra time and compute.",
             ].map((t, k) => (
               <R key={t} d={3 + k}>
-                <div className="flex h-full items-start gap-4 rounded-xl border border-lp-border bg-lp-surface p-6 shadow-lp-card">
+                <div className="flex h-full items-start gap-4 rounded-lp-card border border-lp-border bg-lp-surface p-6 shadow-lp-card">
                   <AlertTriangle className="mt-0.5 h-5 w-5 shrink-0 text-lp-warning" />
                   <span className="text-lg">{t}</span>
                 </div>
