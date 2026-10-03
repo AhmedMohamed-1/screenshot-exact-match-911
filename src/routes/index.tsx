@@ -74,7 +74,7 @@ function Slide({
       }`}
     >
       <R>
-        <div className={`font-mono text-xs uppercase tracking-[0.2em] ${dark ? "text-lp-background/60" : "text-lp-primary"}`}>
+        <div className={`font-mono text-xs font-medium uppercase leading-tight tracking-[0.1em] sm:text-sm ${dark ? "text-lp-background/60" : "text-lp-primary"}`}>
           {String(n).padStart(2, "0")} — {eyebrow}
         </div>
       </R>
@@ -101,7 +101,7 @@ function Node({ t, s, d = 0, strong, tag }: { t: string | undefined; s?: string 
           strong ? "border-lp-primary bg-lp-primary text-lp-primary-foreground" : "border-lp-border bg-lp-surface"
         }`}
       >
-        {tag && <div className={`mb-2 font-mono text-[11px] uppercase tracking-widest ${strong ? "text-lp-primary-foreground" : "text-lp-primary"}`}>{tag}</div>}
+        {tag && <div className={`mb-2 font-mono text-xs font-medium uppercase tracking-widest ${strong ? "text-lp-primary-foreground" : "text-lp-primary"}`}>{tag}</div>}
         <div className="font-display text-lg font-semibold leading-tight">{t}</div>
         {s && <div className={`mt-1.5 text-sm ${strong ? "text-lp-primary-foreground" : "text-lp-foreground-muted"}`}>{s}</div>}
       </div>
@@ -308,7 +308,7 @@ function Deck() {
           <div className="grid-bg pointer-events-none absolute inset-0 opacity-10" />
           <div className="relative grid items-end gap-12 lg:grid-cols-[7fr_5fr]">
             <div>
-              <R><div className="font-mono text-xs uppercase tracking-[0.2em] text-lp-background/60">Graduation Project · 2026</div></R>
+              <R><div className="font-mono text-xs font-medium uppercase leading-tight tracking-[0.1em] text-lp-background/60 sm:text-sm">Graduation Project · 2026</div></R>
               <R d={1}><h1 className="mt-6 font-display text-6xl font-bold leading-[0.9] tracking-tight md:text-8xl xl:text-[10rem]">Study<span className="text-lp-coral">OS</span></h1></R>
               <R d={2}><p className="mt-8 max-w-[24ch] font-display text-2xl font-medium md:text-4xl">Understand what you know. Discover what you don't.</p></R>
             </div>
@@ -430,7 +430,7 @@ function Deck() {
                 <R d={6} className="flex">
                   <div className="flex w-10 flex-col items-center">
                     <div className="mt-[22%] w-px flex-1 bg-lp-primary" />
-                    <span className="my-3 font-mono text-[10px] uppercase tracking-widest text-lp-primary [writing-mode:vertical-rl]">backend controlled</span>
+                    <span className="my-3 font-mono text-xs font-medium uppercase tracking-widest text-lp-primary [writing-mode:vertical-rl]">backend controlled</span>
                     <div className="mb-6 w-px flex-1 bg-lp-primary" />
                   </div>
                 </R>
@@ -501,7 +501,7 @@ function Deck() {
             <R d={6}><ArrowRight className="mx-auto hidden h-6 w-6 text-lp-primary lg:block" /><ArrowDown className="mx-auto h-6 w-6 text-lp-primary lg:hidden" /></R>
             <R d={7}>
               <div className="rounded-lp-card border border-lp-primary bg-lp-primary p-6 text-lp-primary-foreground shadow-lp-card">
-                <div className="font-mono text-xs text-lp-primary-foreground">.NET BACKEND IDENTIFIES</div>
+                <div className="font-mono text-xs font-medium uppercase tracking-[0.1em] text-lp-primary-foreground">.NET BACKEND IDENTIFIES</div>
                 <ul className="mt-4 grid grid-cols-2 gap-3 font-display text-lg">
                   {["Which student", "Which course", "Which assessment", "Which concepts"].map((x) => <li key={x} className="flex items-center gap-2"><Check className="h-4 w-4" />{x}</li>)}
                 </ul>
@@ -582,7 +582,7 @@ function Deck() {
                   className={`flex items-end rounded-lp-card border p-4 font-display text-lg font-semibold shadow-lp-card ${k === 6 ? "border-lp-primary bg-lp-primary text-lp-primary-foreground" : "border-lp-border bg-lp-surface"}`}
                   style={{ minHeight: `${4 + k * 2.2}rem` }}
                 >
-                  <div><div className={`font-mono text-[11px] ${k === 6 ? "text-lp-primary-foreground" : "text-lp-primary"}`}>{k < 6 ? `LEVEL ${k + 1}` : "DETECTED"}</div>{t}</div>
+                  <div><div className={`font-mono text-xs font-medium uppercase tracking-[0.1em] ${k === 6 ? "text-lp-primary-foreground" : "text-lp-primary"}`}>{k < 6 ? `LEVEL ${k + 1}` : "DETECTED"}</div>{t}</div>
                 </div>
               </R>
             ))}
@@ -672,7 +672,7 @@ function Deck() {
                 <div className="flex h-full flex-col rounded-lp-card border-2 border-dashed border-lp-warning bg-lp-warn-surface p-8">
                   <div className="flex items-center justify-between">
                     <c.i className="h-8 w-8 text-lp-warning" />
-                    <span className="rounded-full border border-lp-warning px-3 py-1 font-mono text-[11px] uppercase tracking-widest text-lp-warning">Planned</span>
+                    <span className="rounded-full border border-lp-warning px-3 py-1 font-mono text-xs font-medium uppercase tracking-widest text-lp-warning">Planned</span>
                   </div>
                   <div className="mt-auto pt-16 font-display text-2xl font-semibold">{c.t}</div>
                   <p className="mt-2 text-lp-foreground-muted">{c.s}</p>
@@ -706,7 +706,7 @@ function Deck() {
         {/* 20 FINAL */}
         <section data-slide={20} className="slide relative flex flex-col justify-center overflow-hidden bg-lp-foreground px-[5vw] text-lp-background lg:px-[4vw]">
           <div className="grid-bg pointer-events-none absolute inset-0 opacity-10" />
-          <R><div className="relative font-mono text-xs uppercase tracking-[0.2em] text-lp-background/60">20 — Closing</div></R>
+          <R><div className="relative font-mono text-xs font-medium uppercase leading-tight tracking-[0.1em] text-lp-background/60 sm:text-sm">20 — Closing</div></R>
           <R d={1}>
             <h2 className="relative mt-6 font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-8xl xl:text-9xl">
               Study OS turns learning data into <span className="text-lp-coral">understanding.</span>
