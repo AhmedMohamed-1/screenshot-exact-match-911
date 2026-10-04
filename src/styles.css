@@ -197,8 +197,24 @@
 }
 
 html { scroll-behavior: smooth; }
-.deck { height: 100vh; overflow-y: auto; scroll-snap-type: y mandatory; }
-.slide { scroll-snap-align: start; min-height: 100vh; }
+.deck {
+  height: 100vh;
+  height: 100dvh;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+  scroll-snap-type: y mandatory;
+}
+.slide {
+  scroll-snap-align: start;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+.brand-mark {
+  display: inline-block;
+  background-color: currentColor;
+  -webkit-mask: url("/logo-mark.png") center / contain no-repeat;
+  mask: url("/logo-mark.png") center / contain no-repeat;
+}
 .grid-bg {
   background-image: linear-gradient(var(--lp-border) 1px, transparent 1px), linear-gradient(90deg, var(--lp-border) 1px, transparent 1px);
   background-size: 56px 56px;

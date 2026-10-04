@@ -214,16 +214,45 @@ function Deck() {
     const io = new IntersectionObserver(
       (entries) => {
         entries.forEach((e) => {
-          if (e.isIntersecting) {
-            e.target.classList.add("in");
-            if (e.intersectionRatio > 0.5) setCur(Number((e.target as HTMLElement).dataset["slide"]));
-          }
+          if (e.isIntersecting) e.target.classList.add("in");
         });
       },
-      { root, threshold: [0.25, 0.55] },
+      { root, threshold: [0, 0.25, 0.55] },
     );
     root.querySelectorAll("[data-slide]").forEach((s) => io.observe(s));
     return () => io.disconnect();
+  }, []);
+
+  useEffect(() => {
+    const root = deckRef.current;
+    if (!root) return;
+    let raf = 0;
+    const compute = () => {
+      raf = 0;
+      const rootTop = root.getBoundingClientRect().top;
+      const slides = root.querySelectorAll<HTMLElement>("[data-slide]");
+      let best = 1;
+      let bestDist = Infinity;
+      slides.forEach((s) => {
+        const d = Math.abs(s.getBoundingClientRect().top - rootTop);
+        if (d < bestDist) {
+          bestDist = d;
+          best = Number(s.dataset["slide"]);
+        }
+      });
+      setCur(best);
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(compute);
+    };
+    root.addEventListener("scroll", onScroll, { passive: true });
+    window.addEventListener("resize", onScroll);
+    compute();
+    return () => {
+      root.removeEventListener("scroll", onScroll);
+      window.removeEventListener("resize", onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
   }, []);
 
   const go = (n: number) => {
@@ -254,7 +283,7 @@ function Deck() {
           onClick={() => go(1)}
           className={`flex items-center gap-2 font-display text-lg font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 ${darkNow ? "focus-visible:outline-lp-background" : "focus-visible:outline-lp-focus"}`}
         >
-          <img src="/favicon.svg" alt="" aria-hidden="true" className="h-7 w-7" />
+          <span aria-hidden="true" className="brand-mark h-7 w-7 flex-none" />
           Study<span className="text-lp-primary">OS</span>
         </button>
         <button
