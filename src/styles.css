@@ -220,6 +220,22 @@ html { scroll-behavior: smooth; }
   background-size: 56px 56px;
   mask-image: radial-gradient(ellipse at 70% 40%, black 10%, transparent 70%);
 }
+.grid-field {
+  overflow: hidden;
+  -webkit-mask-image: radial-gradient(ellipse at 70% 40%, black 10%, transparent 70%);
+  mask-image: radial-gradient(ellipse at 70% 40%, black 10%, transparent 70%);
+}
+.grid-cell {
+  position: absolute;
+  width: 44px;
+  height: 44px;
+  border-radius: 8px;
+  background: color-mix(in oklab, var(--lp-background) 60%, transparent);
+  box-shadow: 0 12px 34px -14px color-mix(in oklab, var(--lp-background) 55%, transparent);
+  opacity: 0;
+  transform-origin: center;
+  backface-visibility: hidden;
+}
 .reveal { opacity: 0; transform: translateY(18px); transition: opacity .3s ease, transform .3s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--d, 0) * 70ms); }
 .in .reveal { opacity: 1; transform: none; }
 .draw { transform: scaleX(0); transform-origin: left; transition: transform .3s ease; transition-delay: calc(var(--d, 0) * 70ms + 150ms); }

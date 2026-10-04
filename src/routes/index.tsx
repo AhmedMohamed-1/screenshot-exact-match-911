@@ -21,6 +21,7 @@ import {
   BrainCircuit,
   Palette,
 } from "lucide-react";
+import { GridField } from "@/components/GridField";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -338,6 +339,7 @@ function Deck() {
         {/* 01 COVER */}
         <section data-slide={1} className="slide relative flex flex-col justify-end overflow-hidden bg-lp-foreground px-[5vw] pb-24 pt-24 text-lp-background lg:px-[4vw]">
           <div className="grid-bg pointer-events-none absolute inset-0 opacity-10" />
+          <GridField />
           <div className="relative grid items-end gap-12 lg:grid-cols-[7fr_5fr]">
             <div>
               <R><div className="font-mono text-xs font-medium uppercase leading-tight tracking-[0.1em] text-lp-background/60 sm:text-sm">Graduation Project · 2026</div></R>
@@ -738,6 +740,7 @@ function Deck() {
         {/* 20 FINAL */}
         <section data-slide={20} className="slide relative flex flex-col justify-center overflow-hidden bg-lp-foreground px-[5vw] text-lp-background lg:px-[4vw]">
           <div className="grid-bg pointer-events-none absolute inset-0 opacity-10" />
+          <GridField />
           <R><div className="relative font-mono text-xs font-medium uppercase leading-tight tracking-[0.1em] text-lp-background/60 sm:text-sm">20 — Closing</div></R>
           <R d={1}>
             <h2 className="relative mt-6 font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-8xl xl:text-9xl">
