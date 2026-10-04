@@ -254,9 +254,7 @@ function Deck() {
           onClick={() => go(1)}
           className={`flex items-center gap-2 font-display text-lg font-semibold focus-visible:outline-2 focus-visible:outline-offset-2 ${darkNow ? "focus-visible:outline-lp-background" : "focus-visible:outline-lp-focus"}`}
         >
-          <span className="grid h-7 w-7 place-items-center rounded-md bg-lp-primary text-xs text-lp-primary-foreground">
-            S
-          </span>
+          <img src="/favicon.svg" alt="" aria-hidden="true" className="h-7 w-7" />
           Study<span className="text-lp-primary">OS</span>
         </button>
         <button
