@@ -32,7 +32,7 @@ export const Route = createFileRoute("/")({
         content:
           "Interactive presentation of Study OS: concept-level weakness detection, root-cause analysis and personalized recommendations grounded in course material.",
       },
-      { property: "og:title", content: "Study OS — Graduation Project Presentation" },
+      { property: "og:title", content: "Study OS Graduation Project Presentation" },
       {
         property: "og:description",
         content: "How Study OS turns course material and quiz attempts into learning insights with .NET, SQL Server, Gemini and RAG.",
@@ -180,7 +180,7 @@ function Bullets({ items, start = 3 }: { items: string[]; start?: number }) {
 /* ---------- data ---------- */
 
 const team = [
-  { n: "Ahmed Mohamed", r: "Team Leader — Backend", lead: true, i: Server },
+  { n: "Ahmed Mohamed", r: "Team Leader & Backend", lead: true, i: Server },
   { n: "Mohamed Essam", r: "Frontend Developer", i: MonitorSmartphone },
   { n: "Mohamed Bayommi", r: "Frontend Developer", i: MonitorSmartphone },
   { n: "Mohamed Ali", r: "DevOps Engineer", i: Container },
@@ -216,6 +216,7 @@ function Deck() {
       (entries) => {
         entries.forEach((e) => {
           if (e.isIntersecting) e.target.classList.add("in");
+          else if ((e.target as HTMLElement).id === "weakness") e.target.classList.remove("in");
         });
       },
       { root, threshold: [0, 0.25, 0.55] },
@@ -390,13 +391,13 @@ function Deck() {
         </Slide>
 
         {/* 04 WHY AI */}
-        <Slide id="why-ai" n={4} eyebrow="Why AI?" title="Rules can count wrong answers. They can't explain them.">
+        <Slide id="why-ai" n={4} eyebrow="Why AI?" title="Rules can count wrong answers, but they can't explain them.">
           <Split
             ratio="lg:grid-cols-[4fr_8fr]"
             left={
               <R d={2}>
                 <p className="text-xl text-lp-foreground-muted">
-                  Traditional platforms report scores. Understanding <span className="font-medium text-lp-foreground">which concept</span> failed and <span className="font-medium text-lp-foreground">why</span> requires reading unstructured material and reasoning across questions — the work AI is actually good at.
+                  Traditional platforms report scores. Understanding <span className="font-medium text-lp-foreground">which concept</span> failed and <span className="font-medium text-lp-foreground">why</span> requires reading unstructured material and reasoning across questions  the work AI is actually good at.
                 </p>
               </R>
             }
@@ -500,7 +501,7 @@ function Deck() {
         {/* 08 API */}
         <Slide id="api" n={8} eyebrow="API Contracts" title="A controlled boundary between every layer.">
           <Split
-            left={<R d={2}><p className="text-xl text-lp-foreground-muted">The frontend talks to the backend only through defined REST contracts. The backend decides what reaches the AI — and what gets stored.</p></R>}
+            left={<R d={2}><p className="text-xl text-lp-foreground-muted">The frontend talks to the backend only through defined REST contracts. The backend decides what reaches the AI and what gets stored.</p></R>}
             right={
               <R d={3}>
                 <div className="overflow-hidden rounded-lp-card border border-lp-border bg-lp-foreground font-mono text-sm text-lp-background shadow-lp-card">
@@ -542,7 +543,7 @@ function Deck() {
               </div>
             </R>
             <R d={8}><ArrowRight className="mx-auto hidden h-6 w-6 text-lp-primary lg:block" /><ArrowDown className="mx-auto h-6 w-6 text-lp-primary lg:hidden" /></R>
-            <Node d={9} t="AI receives structured context" s="Only the relevant, scoped data — never free access to the database." />
+            <Node d={9} t="AI receives structured context" s="Only the relevant, scoped data never free access to the database." />
           </div>
         </Slide>
 
@@ -570,7 +571,7 @@ function Deck() {
             ratio="lg:grid-cols-[4fr_8fr]"
             left={<R d={2}><p className="text-xl text-lp-foreground-muted">A PDF is not knowledge yet. Study OS extracts its structure, breaks it into chapters and concepts, and indexes it so the AI can retrieve exactly what's relevant.</p></R>}
             right={
-              <div className="grid gap-x-6 sm:grid-cols-2">
+              <div className="grid gap-x-6 gap-y-8 sm:grid-cols-2">
                 <VFlow steps={[{ t: "Document" }, { t: "Extraction" }, { t: "Text / Structure" }, { t: "Chapters" }]} />
                 <VFlow start={7} steps={[{ t: "Concepts" }, { t: "Relationships / Keywords" }, { t: "Searchable Knowledge" }, { t: "AI / RAG", strong: true }]} />
               </div>
@@ -608,19 +609,90 @@ function Deck() {
         </Slide>
 
         {/* 13 WEAKNESS */}
-        <Slide id="weakness" n={13} eyebrow="Weakness Detection" title={<>Not "weak at Chapter 3."<br /><span className="text-lp-primary">Weak at this concept.</span></>}>
-          <div className="flex flex-col gap-2 lg:flex-row lg:items-end">
-            {["Course", "Chapter", "Concept", "Questions", "Student Answers", "Performance Pattern", "Weak Concept"].map((t, k) => (
-              <R key={t} d={3 + k} className="lg:flex-1">
+        <Slide
+          id="weakness"
+          n={13}
+          eyebrow="Weakness Detection"
+          title={
+            <>
+              Not "weak at Chapter 3."
+              <br />
+              <span className="text-lp-primary">Weak at this concept.</span>
+            </>
+          }
+        >
+          {/* desktop: original rising staircase */}
+          <div className="hidden items-end gap-2 lg:flex">
+            {[
+              "Course",
+              "Chapter",
+              "Concept",
+              "Questions",
+              "Student Answers",
+              "Performance Pattern",
+              "Weak Concept",
+            ].map((t, k) => (
+              <div key={t} className="rise flex-1" style={{ ["--d" as string]: 3 + k }}>
                 <div
                   className={`flex items-end rounded-lp-card border p-4 font-display text-lg font-semibold shadow-lp-card ${k === 6 ? "border-lp-primary bg-lp-primary text-lp-primary-foreground" : "border-lp-border bg-lp-surface"}`}
                   style={{ minHeight: `${4 + k * 2.2}rem` }}
                 >
-                  <div><div className={`font-mono text-xs font-medium uppercase tracking-[0.1em] ${k === 6 ? "text-lp-primary-foreground" : "text-lp-primary"}`}>{k < 6 ? `LEVEL ${k + 1}` : "DETECTED"}</div>{t}</div>
+                  <div>
+                    <div
+                      className={`font-mono text-xs font-medium uppercase tracking-[0.1em] ${k === 6 ? "text-lp-primary-foreground" : "text-lp-primary"}`}
+                    >
+                      {k < 6 ? `LEVEL ${k + 1}` : "DETECTED"}
+                    </div>
+                    {t}
+                  </div>
                 </div>
-              </R>
+              </div>
             ))}
           </div>
+
+          {/* mobile: responsive funnel chart */}
+          <div className="space-y-2.5 sm:space-y-3 lg:hidden">
+            {[
+              { tag: "Level 1", t: "Course", w: 100 },
+              { tag: "Level 2", t: "Chapter", w: 85 },
+              { tag: "Level 3", t: "Concept", w: 71 },
+              { tag: "Level 4", t: "Questions", w: 58 },
+              { tag: "Level 5", t: "Student Answers", w: 46 },
+              { tag: "Level 6", t: "Performance Pattern", w: 36 },
+              { tag: "Detected", t: "Weak Concept", w: 27 },
+            ].map((lv, k, arr) => {
+              const strong = k === arr.length - 1;
+              return (
+                <R key={lv.t} d={3 + k}>
+                  <div className="grid grid-cols-[6.5rem_1fr] items-center gap-3 sm:grid-cols-[10rem_1fr] sm:gap-5">
+                    <div className="min-w-0">
+                      <div
+                        className={`font-mono text-[10px] uppercase tracking-widest sm:text-xs ${strong ? "text-lp-primary" : "text-lp-foreground-subtle"}`}
+                      >
+                        {lv.tag}
+                      </div>
+                      <div
+                        className={`font-display text-sm font-semibold leading-tight sm:text-base ${strong ? "text-lp-primary" : "text-lp-foreground"}`}
+                      >
+                        {lv.t}
+                      </div>
+                    </div>
+                    <div className="h-6 rounded-lp-control bg-lp-surface-sunken sm:h-8">
+                      <div
+                        className={`draw h-full rounded-lp-control ${strong ? "bg-lp-primary" : "bg-lp-primary/25"}`}
+                        style={{ width: `${lv.w}%` }}
+                      />
+                    </div>
+                  </div>
+                </R>
+              );
+            })}
+          </div>
+          <R d={10} className="lg:hidden">
+            <p className="mt-6 text-sm text-lp-foreground-muted">
+              Each level narrows the focus, from the whole course down to one weak concept.
+            </p>
+          </R>
         </Slide>
 
         {/* 14 ROOT CAUSE */}
@@ -646,7 +718,7 @@ function Deck() {
                     <Node key={t} t={t} d={9 + k} />
                   ))}
                 </div>
-                <R d={13}><p className="mt-5 text-sm text-lp-foreground-muted">An inference — a <span className="font-medium text-lp-foreground">likely cause</span>, not a guaranteed diagnosis.</p></R>
+                <R d={13}><p className="mt-5 text-sm text-lp-foreground-muted">An inference a <span className="font-medium text-lp-foreground">likely cause</span>, not a guaranteed diagnosis.</p></R>
               </div>
             }
           />
@@ -695,7 +767,7 @@ function Deck() {
         </Slide>
 
         {/* 18 FUTURE */}
-        <Slide id="future" n={18} eyebrow="Future Vision · Planned" title="Where Study OS could go next." sub="Planned developments — not part of the current implementation.">
+        <Slide id="future" n={18} eyebrow="Future Vision · Planned" title="Where Study OS could go next." sub="Planned developments not part of the current implementation.">
           <div className="grid gap-5 md:grid-cols-3">
             {[
               { i: CalendarDays, t: "Study Planner", s: "Turn recommendations into a scheduled study path." },
@@ -717,7 +789,7 @@ function Deck() {
         </Slide>
 
         {/* 19 LIMITATIONS */}
-        <Slide id="limitations" n={19} eyebrow="Limitations" title="Honest about what AI can — and can't — do.">
+        <Slide id="limitations" n={19} eyebrow="Limitations" title="Honest about what AI can and can't do.">
           <div className="grid gap-4 md:grid-cols-2 xl:grid-cols-3">
             {[
               "AI output is probabilistic.",
@@ -741,7 +813,7 @@ function Deck() {
         <section data-slide={20} className="slide relative flex flex-col justify-center overflow-hidden bg-lp-foreground px-[5vw] text-lp-background lg:px-[4vw]">
           <div className="grid-bg pointer-events-none absolute inset-0 opacity-10" />
           <GridField />
-          <R><div className="relative font-mono text-xs font-medium uppercase leading-tight tracking-[0.1em] text-lp-background/60 sm:text-sm">20 — Closing</div></R>
+          <R><div className="relative font-mono text-xs font-medium uppercase leading-tight tracking-[0.1em] text-lp-background/60 sm:text-sm">20 Closing</div></R>
           <R d={1}>
             <h2 className="relative mt-6 font-display text-5xl font-bold leading-[0.95] tracking-tight md:text-8xl xl:text-9xl">
               Study OS turns learning data into <span className="text-lp-coral">understanding.</span>
