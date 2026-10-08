@@ -79,7 +79,7 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
       { title: "Study OS — Graduation Project Presentation" },
-      { name: "description", content: "Study OS: AI-powered learning analysis that detects weak concepts and recommends what to study next." },
+      { name: "description", content: "StudyOS graduation project: Backend, AI, Frontend, UI/UX and DevOps, under the supervision of Dr. Hossam Gomaa." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#FBF3E6" },
